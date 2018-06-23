@@ -1,5 +1,9 @@
 package pl.maciej.matyjasek.project.rest.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +12,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Past;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -31,10 +38,12 @@ public class Person {
     @Column(name = "GENDER")
     private String gender;
 
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "BIRTHDAY")
     @Past(message = "Only the past date is valid")
-    @DateTimeFormat(pattern = "dd/MM/yy")
-    private LocalDateTime birthday;
+    private LocalDate birthday;
 
     @Column(name = "PESEL_NUMBER")
     private String peselNumber;
