@@ -14,5 +14,5 @@ public interface ContactService {
 
     Set<Contact> getContactsByPersonId(Long personId);
 
-    void delete(Long id);
+//    void delete(Long id);
 }

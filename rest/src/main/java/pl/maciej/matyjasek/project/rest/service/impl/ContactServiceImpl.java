@@ -61,10 +61,10 @@ public class ContactServiceImpl implements ContactService {
         return contactsOfPerson;
     }
 
-    @Override
-    public void delete(Long id) {
-        contactRepository.deleteById(id);
-    }
+//    @Override
+//    public void delete(Long id) {
+//            contactRepository.deleteById(id);
+//        }
 
     @Override
     public Optional<Contact> getContactByPerson(Long personId) {
