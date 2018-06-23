@@ -19,7 +19,7 @@ public class PersonController {
 
     PersonService personService;
 
-    @PostMapping
+    @PostMapping("add")
     public ResponseEntity<String> create(@Valid Person validatePerson, @RequestBody Person person) {
 
         personService.addPerson(person);
@@ -37,7 +37,6 @@ public class PersonController {
                 .ok()
                 .build();
     }
-
 
     @GetMapping("get/{id}")
     public HttpEntity<?> getPerson(@PathVariable Long id) {
@@ -61,7 +60,18 @@ public class PersonController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .build();
-
     }
 
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id){
+
+        personService.delete(id);
+
+        return ResponseEntity.status(HttpStatus.GONE).build();
+    }
+
+//    @GetMapping("/getAllByEmail")
+//    public Set<Person> getAllPersonsByEmail(@PathVariable String email) {
+//        return personService.getAllPersonsByEmail(email);
+//    }
 }

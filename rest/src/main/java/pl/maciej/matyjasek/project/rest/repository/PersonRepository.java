@@ -13,4 +13,6 @@ public interface PersonRepository extends Repository<Person, Long> {
     Optional<Person> findOneById(Long id);
 
     Set<Person> findAll();
+
+    void deleteById(Long id);
 }
