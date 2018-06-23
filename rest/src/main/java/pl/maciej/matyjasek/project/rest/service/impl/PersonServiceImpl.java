@@ -62,7 +62,14 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public void delete(Long id) {
-        personRepository.deleteById(id);
+
+        if (contactRepository.existsByPersonId(id)){
+            contactRepository.deleteByPersonId(id);
+            personRepository.deleteById(id);
+        }
+        System.out.println("no id in database");
+
+
     }
 
 //    @Override
