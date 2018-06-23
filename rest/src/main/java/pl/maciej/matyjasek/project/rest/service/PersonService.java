@@ -16,4 +16,6 @@ public interface PersonService {
     Set<Person> getAllPersons();
 
     void addAllPersons(Set<Person> persons);
+
+//    Set<Person> getAllPersonsByEmail(String email);
 }
