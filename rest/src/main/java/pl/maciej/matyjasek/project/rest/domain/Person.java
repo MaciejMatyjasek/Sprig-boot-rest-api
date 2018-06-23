@@ -37,6 +37,6 @@ public class Person {
     private LocalDateTime birthday;
 
     @Column(name = "PESEL_NUMBER")
-    private Integer peselNumber;
+    private String peselNumber;
 
 }
