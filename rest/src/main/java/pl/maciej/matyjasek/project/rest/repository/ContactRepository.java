@@ -18,6 +18,7 @@ public interface ContactRepository extends Repository<Contact, Long> {
 
     Set<Contact> findAllByPersonIdIn(Long personId);
 
-    Set<Contact> findAllByEmail(String email);
+//    Set<Contact> findAllByEmail(String email);
 
-    }
+    void deleteById(Long id);
+}

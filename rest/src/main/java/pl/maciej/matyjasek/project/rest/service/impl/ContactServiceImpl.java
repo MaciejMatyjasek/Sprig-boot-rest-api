@@ -62,6 +62,11 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
+    public void delete(Long id) {
+        contactRepository.deleteById(id);
+    }
+
+    @Override
     public Optional<Contact> getContactByPerson(Long personId) {
         if (!contactRepository.existsByPersonId(personId)) {
             System.out.println("no person connected to contacts");

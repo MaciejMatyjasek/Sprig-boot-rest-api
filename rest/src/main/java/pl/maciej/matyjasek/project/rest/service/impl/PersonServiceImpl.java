@@ -60,6 +60,11 @@ public class PersonServiceImpl implements PersonService {
         persons.forEach(this::addPerson);
     }
 
+    @Override
+    public void delete(Long id) {
+        personRepository.deleteById(id);
+    }
+
 //    @Override
 //    public Set<Person> getAllPersonsByEmail(String email) {
 //

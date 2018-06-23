@@ -45,6 +45,14 @@ public class ContactController {
 
     }
 
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id){
+
+        contactService.delete(id);
+
+        return ResponseEntity.status(HttpStatus.GONE).build();
+    }
+
 //    @GetMapping("/getAll")
 //    public Set<Person> getAll() {
 //        return personService.getAllPersons();

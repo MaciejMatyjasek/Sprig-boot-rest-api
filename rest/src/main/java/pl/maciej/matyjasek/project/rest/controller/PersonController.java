@@ -62,6 +62,14 @@ public class PersonController {
                 .build();
     }
 
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id){
+
+        personService.delete(id);
+
+        return ResponseEntity.status(HttpStatus.GONE).build();
+    }
+
 //    @GetMapping("/getAllByEmail")
 //    public Set<Person> getAllPersonsByEmail(@PathVariable String email) {
 //        return personService.getAllPersonsByEmail(email);

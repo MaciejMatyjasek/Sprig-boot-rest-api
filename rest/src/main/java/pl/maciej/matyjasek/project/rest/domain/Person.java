@@ -52,4 +52,4 @@ public class Person {
     @OneToMany(mappedBy = "person")
     private Set<Contact> contacts;
 
-    }
+}

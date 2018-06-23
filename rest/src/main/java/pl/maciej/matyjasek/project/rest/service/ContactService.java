@@ -13,4 +13,6 @@ public interface ContactService {
     Optional<Contact> getContactByPerson(Long personId);
 
     Set<Contact> getContactsByPersonId(Long personId);
+
+    void delete(Long id);
 }

@@ -17,5 +17,7 @@ public interface PersonService {
 
     void addAllPersons(Set<Person> persons);
 
+    void delete(Long id);
+
 //    Set<Person> getAllPersonsByEmail(String email);
 }
